@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Presentación: Trabajo Integrador - Base de datos y Big Data - Xiaomi">
+    <title>Xiaomi | Base de Datos & Big Data - Trabajo Integrador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="slide-nav" id="slideNav">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" aria-label="Anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 21</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)" aria-label="Siguiente">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="nav-btn fullscreen-btn" onclick="toggleFullscreen()" aria-label="Pantalla completa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        </button>
+    </nav>
+
+    <!-- SLIDE 1: Portada -->
+    <section class="slide active" id="slide-1">
+        <div class="slide-bg-gradient gradient-xiaomi"></div>
+        <div class="particles" id="particles-1"></div>
+        <div class="slide-content center-content">
+            <div class="cover-badge animate-fade-down">Facultad de Ciencias Empresariales</div>
+            <div class="cover-logo animate-fade-up">
+                <img src="images/image1.png" alt="Logo Universidad" class="uni-logo">
+            </div>
+            <h1 class="cover-title animate-scale-in">
+                <span class="title-gradient">TRABAJO INTEGRADOR</span>
+            </h1>
+            <div class="cover-subtitle animate-fade-up">Base de Datos & Big Data</div>
+            <div class="cover-divider animate-width"></div>
+            <div class="cover-team animate-fade-up-delay">
+                <div class="team-grid">
+                    <div class="team-member"><span class="member-icon">👤</span> Naomi Salome Quiroz Bellido</div>
+                    <div class="team-member"><span class="member-icon">👤</span> Manuel Felipe Jara Nieto</div>
+                    <div class="team-member"><span class="member-icon">👤</span> María Gabriela Gonzales Arias</div>
+                    <div class="team-member"><span class="member-icon">👤</span> Miguel Sebastián Mejia Sánchez</div>
+                    <div class="team-member"><span class="member-icon">👤</span> Gonzalo Camilo Acuña Aguilera</div>
+                </div>
+                <div class="cover-info">
+                    <span>📚 Docente: Jorge Luis García Rodríguez</span>
+                    <span>📋 Sección: 5B</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: Índice -->
+    <section class="slide" id="slide-2">
+        <div class="slide-bg-gradient gradient-dark"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">CONTENIDO</div>
+            <h2 class="slide-title animate-fade-up">Índice de la Presentación</h2>
+            <div class="index-grid animate-fade-up-delay">
+                <div class="index-card" onclick="goToSlide(3)">
+                    <div class="index-number">01</div>
+                    <div class="index-label">Introducción</div>
+                    <div class="index-desc">Contexto y empresa</div>
+                </div>
+                <div class="index-card" onclick="goToSlide(5)">
+                    <div class="index-number">02</div>
+                    <div class="index-label">Planteamiento</div>
+                    <div class="index-desc">Problema y objetivos</div>
+                </div>
+                <div class="index-card" onclick="goToSlide(9)">
+                    <div class="index-number">03</div>
+                    <div class="index-label">Arquitectura</div>
+                    <div class="index-desc">MER y modelo relacional</div>
+                </div>
+                <div class="index-card" onclick="goToSlide(14)">
+                    <div class="index-number">04</div>
+                    <div class="index-label">Integridad ACID</div>
+                    <div class="index-desc">Transacciones y SQL</div>
+                </div>
+                <div class="index-card" onclick="goToSlide(17)">
+                    <div class="index-number">05</div>
+                    <div class="index-label">Seguridad</div>
+                    <div class="index-desc">Roles, permisos y auditoría</div>
+                </div>
+                <div class="index-card" onclick="goToSlide(21)">
+                    <div class="index-number">06</div>
+                    <div class="index-label">Conclusiones</div>
+                    <div class="index-desc">Resultados y referencias</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: Introducción -->
+    <section class="slide" id="slide-3">
+        <div class="slide-bg-gradient gradient-orange"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">SECCIÓN 01</div>
+            <h2 class="slide-title animate-fade-up">Introducción</h2>
+            <div class="content-split animate-fade-up-delay">
+                <div class="content-left">
+                    <div class="highlight-box">
+                        <div class="highlight-icon">🏢</div>
+                        <h3>Xiaomi Corporation</h3>
+                        <p>Fundada en <strong>2010</strong>, Xiaomi se ha consolidado como una de las empresas tecnológicas de mayor impacto a nivel mundial.</p>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <div class="stat-value">AIoT</div>
+                            <div class="stat-label">Estrategia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">IoT</div>
+                            <div class="stat-label">Ecosistema más grande</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">PB+</div>
+                            <div class="stat-label">Volumen de datos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-dot" style="background: #FF6900;"></span>
+                            <div>
+                                <strong>Smartphone × AIoT</strong>
+                                <p>Inteligencia Artificial + Internet de las Cosas</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-dot" style="background: #00C9A7;"></span>
+                            <div>
+                                <strong>Ecosistema masivo</strong>
+                                <p>Cientos de millones de dispositivos conectados</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-dot" style="background: #845EF7;"></span>
+                            <div>
+                                <strong>Presencia global</strong>
+                                <p>E-commerce y Mi Stores en todo el mundo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4: Gestión de Datos -->
+    <section class="slide" id="slide-4">
+        <div class="slide-bg-gradient gradient-purple"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">GESTIÓN ACTUAL</div>
+            <h2 class="slide-title animate-fade-up">Situación Actual de los Datos</h2>
+            <div class="three-columns animate-fade-up-delay">
+                <div class="info-card card-oltp">
+                    <div class="card-icon">🗄️</div>
+                    <h3>Datos Transaccionales</h3>
+                    <div class="card-tag">OLTP</div>
+                    <p>Logística, facturación, ventas globales y control de inventarios en almacenes y tiendas físicas.</p>
+                </div>
+                <div class="info-card card-bigdata">
+                    <div class="card-icon">📡</div>
+                    <h3>Datos de Telemetría</h3>
+                    <div class="card-tag">Big Data</div>
+                    <p>Información en tiempo real de millones de sensores y dispositivos IoT a través de Mi Home y HyperOS.</p>
+                </div>
+                <div class="info-card card-interaction">
+                    <div class="card-icon">🛒</div>
+                    <h3>Datos de Interacción</h3>
+                    <div class="card-tag">Consumo</div>
+                    <p>Historial de compras, preferencias de usuarios, Xiaomi Cloud y servicios de valor agregado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 5: Problemas Identificados -->
+    <section class="slide" id="slide-5">
+        <div class="slide-bg-gradient gradient-red"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">PROBLEMÁTICA</div>
+            <h2 class="slide-title animate-fade-up">Problemas Identificados</h2>
+            <div class="problems-grid animate-fade-up-delay">
+                <div class="problem-card">
+                    <div class="problem-icon">🔒</div>
+                    <h3>Silos de Información</h3>
+                    <p>Brecha entre bases de datos transaccionales y repositorios de Big Data, dificultando la visión integral del cliente y negocio en tiempo real.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📦</div>
+                    <h3>Desfase en Cadena de Suministro</h3>
+                    <p>Falta de integración entre el análisis predictivo de demanda y el inventario físico, generando cuellos de botella en la reposición de stock.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⚠️</div>
+                    <h3>Riesgos de Integridad</h3>
+                    <p>Con millones de transacciones por segundo a nivel global, mantener la consistencia operativa sin degradar el rendimiento es un desafío constante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6: Problema Central -->
+    <section class="slide" id="slide-6">
+        <div class="slide-bg-gradient gradient-dark-red"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">DOLOR DE NEGOCIO</div>
+            <h2 class="slide-title animate-fade-up">Problema Central</h2>
+            <div class="central-problem animate-fade-up-delay">
+                <blockquote class="problem-quote">
+                    La <strong>desincronización y fragmentación</strong> de la arquitectura de datos impide la toma de decisiones automatizadas en tiempo real que crucen la demanda de los usuarios con la realidad logística operativa.
+                </blockquote>
+            </div>
+            <div class="impact-grid animate-fade-up-delay">
+                <div class="impact-card">
+                    <div class="impact-header">
+                        <span class="impact-emoji">⚙️</span>
+                        <h4>Impacto Operativo</h4>
+                    </div>
+                    <ul>
+                        <li>Ineficiencia en cadena de suministro</li>
+                        <li>Atención al cliente fragmentada</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-header">
+                        <span class="impact-emoji">💰</span>
+                        <h4>Impacto Económico</h4>
+                    </div>
+                    <ul>
+                        <li>Pérdida de ingresos por quiebres de stock</li>
+                        <li>Oportunidades perdidas de cross-selling</li>
+                    </ul>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-header">
+                        <span class="impact-emoji">🖥️</span>
+                        <h4>Impacto Tecnológico</h4>
+                    </div>
+                    <ul>
+                        <li>Riesgos de concurrencia ACID</li>
+                        <li>Alta latencia en consultas complejas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 7: Objetivos -->
+    <section class="slide" id="slide-7">
+        <div class="slide-bg-gradient gradient-green"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">METAS</div>
+            <h2 class="slide-title animate-fade-up">Objetivos del Proyecto</h2>
+            <div class="objective-main animate-fade-up-delay">
+                <div class="obj-general">
+                    <div class="obj-badge">OBJETIVO GENERAL</div>
+                    <p>Diseñar y modelar una arquitectura de base de datos relacional robusta, segura y transaccionalmente íntegra que soporte las operaciones comerciales críticas de un ecosistema masivo como el de Xiaomi.</p>
+                </div>
+            </div>
+            <div class="obj-specific-grid animate-fade-up-delay">
+                <div class="obj-card">
+                    <span class="obj-num">01</span>
+                    <p>Modelar la arquitectura de datos (MER y Modelo Físico)</p>
+                </div>
+                <div class="obj-card">
+                    <span class="obj-num">02</span>
+                    <p>Asegurar la integridad transaccional (ACID)</p>
+                </div>
+                <div class="obj-card">
+                    <span class="obj-num">03</span>
+                    <p>Implementar esquemas de control de acceso</p>
+                </div>
+                <div class="obj-card">
+                    <span class="obj-num">04</span>
+                    <p>Mitigar riesgos y establecer políticas de ciberseguridad</p>
+                </div>
+                <div class="obj-card">
+                    <span class="obj-num">05</span>
+                    <p>Vincular la operatividad con la estrategia de negocio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 8: Justificación -->
+    <section class="slide" id="slide-8">
+        <div class="slide-bg-gradient gradient-teal"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">IMPACTO ESPERADO</div>
+            <h2 class="slide-title animate-fade-up">Justificación e Impacto</h2>
+            <div class="benefits-grid animate-fade-up-delay">
+                <div class="benefit-card benefit-business">
+                    <div class="benefit-icon">💼</div>
+                    <h3>Beneficios para el Negocio</h3>
+                    <ul>
+                        <li>Gestión logística sin fisuras</li>
+                        <li>Experiencia omnicanal unificada</li>
+                        <li>Soporte a alta demanda (ventas flash)</li>
+                    </ul>
+                </div>
+                <div class="benefit-card benefit-tech">
+                    <div class="benefit-icon">🔧</div>
+                    <h3>Beneficios Técnicos</h3>
+                    <ul>
+                        <li>Garantía de integridad ACID</li>
+                        <li>Reducción de latencia operativa</li>
+                        <li>Seguridad y auditoría por diseño</li>
+                    </ul>
+                </div>
+                <div class="benefit-card benefit-decision">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Toma de Decisiones</h3>
+                    <ul>
+                        <li>Fuente de verdad para Big Data</li>
+                        <li>Visibilidad ejecutiva en tiempo real</li>
+                        <li>Sinergia predictiva (IoT + ventas)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 9: MER -->
+    <section class="slide" id="slide-9">
+        <div class="slide-bg-gradient gradient-blue"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">SECCIÓN 03 — ARQUITECTURA</div>
+            <h2 class="slide-title animate-fade-up">Modelo Entidad-Relación (MER)</h2>
+            <div class="diagram-container animate-fade-up-delay">
+                <div class="diagram-frame">
+                    <img src="images/image2.png" alt="Modelo Entidad-Relación de la Base de Datos Xiaomi" class="diagram-img" onclick="openImageModal(this)">
+                </div>
+                <div class="diagram-caption">
+                    <strong>Figura 1:</strong> Modelo Entidad-Relación de la Base de Datos Xiaomi — Elaboración propia en Lucidchart (2026)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 10: Entidades y Atributos -->
+    <section class="slide" id="slide-10">
+        <div class="slide-bg-gradient gradient-blue-dark"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">MODELAMIENTO</div>
+            <h2 class="slide-title animate-fade-up">Entidades, Atributos y Relaciones</h2>
+            <div class="content-split animate-fade-up-delay">
+                <div class="content-left">
+                    <h3 class="sub-title">Entidades Principales</h3>
+                    <div class="entity-tags">
+                        <span class="entity-tag tag-primary">Cliente</span>
+                        <span class="entity-tag tag-primary">Pedido</span>
+                        <span class="entity-tag tag-primary">Producto</span>
+                        <span class="entity-tag tag-primary">Pago</span>
+                        <span class="entity-tag tag-primary">Factura</span>
+                        <span class="entity-tag tag-primary">Inventario</span>
+                        <span class="entity-tag tag-primary">Almacén</span>
+                        <span class="entity-tag tag-primary">Proveedor</span>
+                        <span class="entity-tag tag-primary">Componente</span>
+                        <span class="entity-tag tag-primary">Producción</span>
+                        <span class="entity-tag tag-primary">Categoría</span>
+                        <span class="entity-tag tag-primary">Promoción</span>
+                    </div>
+                    <h3 class="sub-title" style="margin-top: 1rem;">Entidades Intermedias</h3>
+                    <div class="entity-tags">
+                        <span class="entity-tag tag-secondary">Detalle_Pedido</span>
+                        <span class="entity-tag tag-secondary">Produccion_Componente</span>
+                        <span class="entity-tag tag-secondary">Proveedor_Componente</span>
+                        <span class="entity-tag tag-secondary">Promocion_Producto</span>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <h3 class="sub-title">Relaciones Clave</h3>
+                    <div class="relation-list">
+                        <div class="relation-item">
+                            <span class="rel-from">Cliente</span>
+                            <span class="rel-arrow">1 → N</span>
+                            <span class="rel-to">Pedido</span>
+                        </div>
+                        <div class="relation-item">
+                            <span class="rel-from">Pedido</span>
+                            <span class="rel-arrow">N ↔ M</span>
+                            <span class="rel-to">Producto</span>
+                        </div>
+                        <div class="relation-item">
+                            <span class="rel-from">Producto</span>
+                            <span class="rel-arrow">N → 1</span>
+                            <span class="rel-to">Categoría</span>
+                        </div>
+                        <div class="relation-item">
+                            <span class="rel-from">Producto</span>
+                            <span class="rel-arrow">1 → N</span>
+                            <span class="rel-to">Inventario</span>
+                        </div>
+                        <div class="relation-item">
+                            <span class="rel-from">Producción</span>
+                            <span class="rel-arrow">N ↔ M</span>
+                            <span class="rel-to">Componente</span>
+                        </div>
+                        <div class="relation-item">
+                            <span class="rel-from">Proveedor</span>
+                            <span class="rel-arrow">N ↔ M</span>
+                            <span class="rel-to">Componente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 11: Modelo Relacional -->
+    <section class="slide" id="slide-11">
+        <div class="slide-bg-gradient gradient-indigo"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">MODELO FÍSICO</div>
+            <h2 class="slide-title animate-fade-up">Modelo Relacional</h2>
+            <div class="diagram-container animate-fade-up-delay">
+                <div class="diagram-frame">
+                    <img src="images/image3.png" alt="Modelo Relacional de la Base de Datos Xiaomi" class="diagram-img" onclick="openImageModal(this)">
+                </div>
+                <div class="diagram-caption">
+                    <strong>Figura 2:</strong> Modelo Relacional de la Base de Datos Xiaomi — Elaboración propia (2026)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 12: Diccionario de Datos -->
+    <section class="slide" id="slide-12">
+        <div class="slide-bg-gradient gradient-dark"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">DICCIONARIO DE DATOS</div>
+            <h2 class="slide-title animate-fade-up">Tablas Principales — Xiaomi DB</h2>
+            <div class="tables-showcase animate-fade-up-delay">
+                <div class="mini-table">
+                    <div class="table-header-bar">CLIENTE</div>
+                    <div class="table-fields">
+                        <span class="field pk">🔑 ID_Cliente</span>
+                        <span class="field">Primer_Nombre</span>
+                        <span class="field">Primer_Apellido</span>
+                        <span class="field">Email</span>
+                        <span class="field">Pais</span>
+                        <span class="field">Ciudad</span>
+                    </div>
+                </div>
+                <div class="mini-table">
+                    <div class="table-header-bar">PEDIDO</div>
+                    <div class="table-fields">
+                        <span class="field pk">🔑 ID_Pedido</span>
+                        <span class="field fk">🔗 ID_Cliente</span>
+                        <span class="field">Fecha_Pedido</span>
+                        <span class="field">Estado</span>
+                    </div>
+                </div>
+                <div class="mini-table">
+                    <div class="table-header-bar">PRODUCTO</div>
+                    <div class="table-fields">
+                        <span class="field pk">🔑 ID_Producto</span>
+                        <span class="field fk">🔗 ID_Categoria</span>
+                        <span class="field">Nombre_Producto</span>
+                        <span class="field">Precio_Base</span>
+                    </div>
+                </div>
+                <div class="mini-table">
+                    <div class="table-header-bar">PAGO</div>
+                    <div class="table-fields">
+                        <span class="field pk">🔑 ID_Pago</span>
+                        <span class="field fk">🔗 ID_Pedido</span>
+                        <span class="field">Monto</span>
+                        <span class="field">Metodo_Pago</span>
+                        <span class="field">Estado</span>
+                    </div>
+                </div>
+                <div class="mini-table">
+                    <div class="table-header-bar">INVENTARIO</div>
+                    <div class="table-fields">
+                        <span class="field pk">🔑 ID_Inventario</span>
+                        <span class="field fk">🔗 ID_Producto</span>
+                        <span class="field fk">🔗 ID_Almacen</span>
+                        <span class="field">Stock_Actual</span>
+                        <span class="field">Stock_Minimo</span>
+                    </div>
+                </div>
+                <div class="mini-table">
+                    <div class="table-header-bar">ENVIO</div>
+                    <div class="table-fields">
+                        <span class="field pk">🔑 ID_Envio</span>
+                        <span class="field fk">🔗 ID_Pedido</span>
+                        <span class="field fk">🔗 ID_Almacen</span>
+                        <span class="field">Codigo_Seguimiento</span>
+                        <span class="field">Estado_Envio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 13: Beneficios de la Arquitectura -->
+    <section class="slide" id="slide-13">
+        <div class="slide-bg-gradient gradient-teal"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">INGESTA Y CALIDAD DE DATOS</div>
+            <h2 class="slide-title animate-fade-up">Beneficios de la Arquitectura de Datos</h2>
+            <div class="diagram-container animate-fade-up-delay">
+                <div class="diagram-frame arch-benefits-frame">
+                    <img src="images/image4.png" alt="Beneficios de la Arquitectura de Datos para Xiaomi" class="diagram-img" onclick="openImageModal(this)">
+                </div>
+                <div class="diagram-caption">
+                    <strong>Figura 3:</strong> Beneficios de la Arquitectura de Datos para Xiaomi — Elaboración en la plataforma Canvas (2026)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 14: ACID -->
+    <section class="slide" id="slide-14">
+        <div class="slide-bg-gradient gradient-amber"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">SECCIÓN 04 — INTEGRIDAD</div>
+            <h2 class="slide-title animate-fade-up">Propiedades ACID</h2>
+            <div class="acid-grid animate-fade-up-delay">
+                <div class="acid-card acid-a">
+                    <div class="acid-letter">A</div>
+                    <h3>Atomicidad</h3>
+                    <p>«Todo o nada». Si un paso falla al generar un pedido, el sistema ejecuta un ROLLBACK automático sin dejar registros incompletos.</p>
+                </div>
+                <div class="acid-card acid-c">
+                    <div class="acid-letter">C</div>
+                    <h3>Consistencia</h3>
+                    <p>La BD siempre mantiene un estado válido: claves primarias únicas, integridad referencial y restricciones de dominio.</p>
+                </div>
+                <div class="acid-card acid-i">
+                    <div class="acid-letter">I</div>
+                    <h3>Aislamiento</h3>
+                    <p>Cada transacción se comporta como si fuera la única ejecutándose. Previene «lecturas sucias» y condiciones de carrera.</p>
+                </div>
+                <div class="acid-card acid-d">
+                    <div class="acid-letter">D</div>
+                    <h3>Durabilidad</h3>
+                    <p>Tras un COMMIT, los datos se persisten en almacenamiento no volátil. Recuperación completa ante fallos catastróficos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 15: Implementación SQL ACID -->
+    <section class="slide" id="slide-15">
+        <div class="slide-bg-gradient gradient-dark"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">SQL TRANSACCIONAL</div>
+            <h2 class="slide-title animate-fade-up">Implementación ACID en SQL</h2>
+            <div class="content-split animate-fade-up-delay">
+                <div class="content-left">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                            <span class="code-title">transaccion_pedido.sql</span>
+                        </div>
+                        <pre><code><span class="kw">BEGIN TRANSACTION</span>;
+
+<span class="cm">-- Insertar cabecera del pedido</span>
+<span class="kw">INSERT INTO</span> <span class="tb">PEDIDO</span>
+  (ID_Cliente, Fecha_Pedido, Estado)
+<span class="kw">VALUES</span> (101, <span class="st">'2026-06-10'</span>, <span class="st">'Pendiente'</span>);
+
+<span class="cm">-- Insertar detalle</span>
+<span class="kw">INSERT INTO</span> <span class="tb">DETALLE_PEDIDO</span>
+  (ID_Pedido, ID_Producto, Cantidad)
+<span class="kw">VALUES</span> (@NewID, 5, 2);
+
+<span class="cm">-- Descontar stock</span>
+<span class="kw">UPDATE</span> <span class="tb">INVENTARIO</span>
+<span class="kw">SET</span> Stock_Actual = Stock_Actual - 2
+<span class="kw">WHERE</span> ID_Producto = 5;
+
+<span class="kw">COMMIT</span>;</code></pre>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <div class="sql-concepts">
+                        <div class="sql-concept">
+                            <h4>🔄 BEGIN TRANSACTION</h4>
+                            <p>Marca el inicio de la protección de datos.</p>
+                        </div>
+                        <div class="sql-concept">
+                            <h4>✅ COMMIT</h4>
+                            <p>Confirma todos los cambios de forma permanente. Garantiza <strong>Durabilidad</strong>.</p>
+                        </div>
+                        <div class="sql-concept">
+                            <h4>↩️ ROLLBACK</h4>
+                            <p>Deshace todas las operaciones ante un error. Garantiza <strong>Atomicidad</strong>.</p>
+                        </div>
+                        <div class="sql-concept">
+                            <h4>🛡️ TRY...CATCH</h4>
+                            <p>Monitorea cada sentencia y redirige a ROLLBACK automáticamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 16: Escenarios SQL -->
+    <section class="slide" id="slide-16">
+        <div class="slide-bg-gradient gradient-dark-blue"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">CASOS PRÁCTICOS</div>
+            <h2 class="slide-title animate-fade-up">Escenarios SQL Aplicados</h2>
+            <div class="scenarios-grid animate-fade-up-delay">
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <span class="scenario-icon">➕</span>
+                        <h3>Inserción de Datos</h3>
+                    </div>
+                    <div class="scenario-img-wrapper">
+                        <img src="images/image5.png" alt="Escenario de inserción de datos" class="scenario-img" onclick="openImageModal(this)">
+                    </div>
+                    <p class="scenario-desc">Si el stock es insuficiente, el sistema revierte todas las acciones previas.</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <span class="scenario-icon">🔄</span>
+                        <h3>Actualización de Datos</h3>
+                    </div>
+                    <div class="scenario-img-wrapper">
+                        <img src="images/image6.png" alt="Escenario de actualización de datos" class="scenario-img" onclick="openImageModal(this)">
+                    </div>
+                    <p class="scenario-desc">Devoluciones y ajustes de stock sin condiciones de carrera.</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <span class="scenario-icon">🗑️</span>
+                        <h3>Eliminación de Datos</h3>
+                    </div>
+                    <div class="scenario-img-wrapper">
+                        <img src="images/image7.png" alt="Escenario de eliminación de datos" class="scenario-img" onclick="openImageModal(this)">
+                    </div>
+                    <p class="scenario-desc">Eliminación en cascada con validaciones de integridad referencial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 17: Seguridad -->
+    <section class="slide" id="slide-17">
+        <div class="slide-bg-gradient gradient-security"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">SECCIÓN 05 — SEGURIDAD</div>
+            <h2 class="slide-title animate-fade-up">Seguridad en Bases de Datos</h2>
+            <div class="content-split animate-fade-up-delay">
+                <div class="content-left">
+                    <div class="security-intro">
+                        <p>La seguridad en bases de datos protege la <strong>confidencialidad</strong>, <strong>integridad</strong> y <strong>disponibilidad</strong> de los datos almacenados.</p>
+                    </div>
+                    <div class="risk-list">
+                        <div class="risk-item risk-critical">
+                            <span>🔴</span> Fuga de datos personales de miles de clientes
+                        </div>
+                        <div class="risk-item risk-high">
+                            <span>🟠</span> Manipulación de transacciones financieras
+                        </div>
+                        <div class="risk-item risk-medium">
+                            <span>🟡</span> Robo de propiedad intelectual
+                        </div>
+                        <div class="risk-item risk-low">
+                            <span>🔵</span> Interrupción del servicio
+                        </div>
+                        <div class="risk-item risk-info">
+                            <span>⚪</span> Daño reputacional y sanciones legales
+                        </div>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <h3 class="sub-title">Principio de Mínimo Privilegio</h3>
+                    <p style="font-size:0.85rem; opacity:0.8; margin-bottom:1rem;">Cada usuario solo tiene los permisos estrictamente necesarios para su función.</p>
+                    <div class="roles-mini">
+                        <div class="role-badge role-app">👤 Cliente_App</div>
+                        <div class="role-badge role-sales">🎯 Agente_Ventas</div>
+                        <div class="role-badge role-inv">📦 Gestor_Inventario</div>
+                        <div class="role-badge role-analyst">📊 Analista_Negocio</div>
+                        <div class="role-badge role-audit">🔍 Auditor</div>
+                        <div class="role-badge role-dba">⚡ DBA_Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 18: Roles y Permisos -->
+    <section class="slide" id="slide-18">
+        <div class="slide-bg-gradient gradient-dark"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">ROLES Y PERMISOS</div>
+            <h2 class="slide-title animate-fade-up">Tabla de Roles y Permisos</h2>
+            <div class="table-container animate-fade-up-delay">
+                <table class="data-table" id="rolesTable">
+                    <thead>
+                        <tr>
+                            <th>Rol</th>
+                            <th>Descripción</th>
+                            <th>Tablas con Acceso</th>
+                            <th>Permisos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="role-badge-sm role-app">Cliente_App</span></td>
+                            <td>Usuarios finales (app/web)</td>
+                            <td>CLIENTE, PEDIDO, PRODUCTO, PAGO</td>
+                            <td>SELECT, INSERT, UPDATE (restringido)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge-sm role-sales">Agente_Ventas</span></td>
+                            <td>Atención al cliente</td>
+                            <td>CLIENTE, PEDIDO, DETALLE_PEDIDO, ENVIO</td>
+                            <td>SELECT, UPDATE, INSERT</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge-sm role-inv">Gestor_Inventario</span></td>
+                            <td>Control de stock</td>
+                            <td>PRODUCTO, INVENTARIO, ALMACEN</td>
+                            <td>SELECT, UPDATE, INSERT</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge-sm role-analyst">Analista_Negocio</span></td>
+                            <td>Reportes y análisis</td>
+                            <td>Todas (excepto datos sensibles)</td>
+                            <td>SELECT</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge-sm role-audit">Auditor</span></td>
+                            <td>Revisión de actividades</td>
+                            <td>LOG_AUDITORIA, LOGS</td>
+                            <td>SELECT (solo logs)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-badge-sm role-dba">DBA_Admin</span></td>
+                            <td>Administración total</td>
+                            <td>Todas las tablas</td>
+                            <td>ALL PRIVILEGES</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 19: Amenazas -->
+    <section class="slide" id="slide-19">
+        <div class="slide-bg-gradient gradient-threat"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">AMENAZAS</div>
+            <h2 class="slide-title animate-fade-up">Amenazas y Riesgos de Seguridad</h2>
+            <div class="threats-grid animate-fade-up-delay">
+                <div class="threat-card">
+                    <div class="threat-icon">👥</div>
+                    <h4>Amenazas Internas</h4>
+                    <p>Acceso no controlado de más de 400 startups asociadas al ecosistema de datos compartidos.</p>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">🤦</div>
+                    <h4>Error Humano</h4>
+                    <p>Cerca del 50% de los incidentes. Mala configuración en la nube, contraseñas débiles.</p>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">💉</div>
+                    <h4>Inyección SQL/NoSQL</h4>
+                    <p>Riesgo en aplicaciones web (Mi Store) y plataformas móviles (Mi Home) que interactúan con la BD.</p>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">🦠</div>
+                    <h4>Malware</h4>
+                    <p>Software malicioso dirigido a explotar vulnerabilidades en los SGBD de Xiaomi.</p>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">💾</div>
+                    <h4>Ataques a Backups</h4>
+                    <p>Copias de seguridad como objetivo de ransomware si no tienen los mismos controles estrictos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 20: Implementación SQL Seguridad -->
+    <section class="slide" id="slide-20">
+        <div class="slide-bg-gradient gradient-dark"></div>
+        <div class="slide-content">
+            <div class="section-tag animate-fade-down">IMPLEMENTACIÓN SQL</div>
+            <h2 class="slide-title animate-fade-up">SQL de Seguridad — Roles y Auditoría</h2>
+            <div class="sql-gallery animate-fade-up-delay">
+                <div class="sql-gallery-item">
+                    <h4>Creación de Roles</h4>
+                    <div class="sql-img-wrapper">
+                        <img src="images/image8.png" alt="Creación de Roles" class="sql-screenshot" onclick="openImageModal(this)">
+                    </div>
+                </div>
+                <div class="sql-gallery-item">
+                    <h4>Permisos por Rol</h4>
+                    <div class="sql-img-wrapper">
+                        <img src="images/image9.png" alt="Asignación de Permisos" class="sql-screenshot" onclick="openImageModal(this)">
+                    </div>
+                </div>
+                <div class="sql-gallery-item">
+                    <h4>Usuarios y Asignación</h4>
+                    <div class="sql-img-wrapper">
+                        <img src="images/image10.png" alt="Usuarios y Roles" class="sql-screenshot" onclick="openImageModal(this)">
+                    </div>
+                </div>
+                <div class="sql-gallery-item">
+                    <h4>Tabla de Auditoría</h4>
+                    <div class="sql-img-wrapper">
+                        <img src="images/image11.png" alt="Tabla LOG_AUDITORIA" class="sql-screenshot" onclick="openImageModal(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 21: Conclusiones -->
+    <section class="slide" id="slide-21">
+        <div class="slide-bg-gradient gradient-finale"></div>
+        <div class="particles" id="particles-20"></div>
+        <div class="slide-content center-content">
+            <div class="section-tag animate-fade-down">CIERRE</div>
+            <h2 class="slide-title animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 3rem);">Conclusiones</h2>
+            <div class="conclusions-grid animate-fade-up-delay">
+                <div class="conclusion-item">
+                    <div class="conclusion-icon">✅</div>
+                    <p>Se diseñó un <strong>modelo relacional robusto</strong> con 16 tablas normalizadas (3FN) que soporta las operaciones comerciales de Xiaomi.</p>
+                </div>
+                <div class="conclusion-item">
+                    <div class="conclusion-icon">🔒</div>
+                    <p>La implementación de propiedades <strong>ACID</strong> garantiza integridad transaccional en escenarios de alta concurrencia.</p>
+                </div>
+                <div class="conclusion-item">
+                    <div class="conclusion-icon">🛡️</div>
+                    <p>El sistema de <strong>6 roles diferenciados</strong> y auditoría automatizada protege los datos bajo el principio de mínimo privilegio.</p>
+                </div>
+                <div class="conclusion-item">
+                    <div class="conclusion-icon">🚀</div>
+                    <p>La base relacional actúa como <strong>fuente de verdad confiable</strong> para alimentar los clústeres de Big Data e IA de Xiaomi.</p>
+                </div>
+            </div>
+            <div class="references-section animate-fade-up-delay">
+                <h4>Referencias</h4>
+                <p>IBM (2026). ¿Qué es la seguridad de la base de datos? &nbsp;|&nbsp; Xiaomi (2024). Privacy Policy.</p>
+            </div>
+            <div class="thank-you animate-scale-in">
+                ¡Gracias!
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal" onclick="closeImageModal()">
+        <button class="modal-close" onclick="closeImageModal()">✕</button>
+        <img id="modalImage" src="" alt="Imagen ampliada">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
